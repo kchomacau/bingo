@@ -25,177 +25,177 @@
 </p>
 
 <style>
-	body, p, h1, h2 {
-		margin: 0;
-		padding: 0;
-		font-family: Helvatica, Arial, sans-serif;
-	}
-	#draw {
-		height: 120px;
-		line-height: 120px;
-	}
-	#result {
-		top: 120px;
-	}
-	#result {
-		bottom: 50px;
-	}
-	p.bottom-button {
-		height: 50px;
-	}
-	#draw {
-		background: #222;
-		overflow: hidden;
-		text-align: center;
-	}
-	#draw span#cur-num {
-		font-size: 80px;
-		color: #ffeb3b;
-		font-weight: bold;
-	}
-	#result, 
-	p.bottom-button {
-		position: absolute;
-		right: 0;
-		left: 0;
-	}
-	#result {
-		padding: 10px;
-		font-size: 19px;
-	}
-	#result span {
-		width: 10%;
-		height: 10%;
-		white-space: nowrap;
-		display: inline-block;
-		vertical-align: middle;
-		text-align: center;
-		color: #eee;
+body, p, h1, h2 {
+	margin: 0;
+	padding: 0;
+	font-family: Helvatica, Arial, sans-serif;
+}
+#draw {
+	height: 120px;
+	line-height: 120px;
+}
+#result {
+	top: 120px;
+}
+#result {
+	bottom: 50px;
+}
+p.bottom-button {
+	height: 50px;
+}
+#draw {
+	background: #222;
+	overflow: hidden;
+	text-align: center;
+}
+#draw span#cur-num {
+	font-size: 80px;
+	color: #ffeb3b;
+	font-weight: bold;
+}
+#result, 
+p.bottom-button {
+	position: absolute;
+	right: 0;
+	left: 0;
+}
+#result {
+	padding: 10px;
+	font-size: 19px;
+}
+#result span {
+	width: 10%;
+	height: 10%;
+	white-space: nowrap;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	color: #eee;
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	transform: scale(1);
+}
+#result span.active {
+	position: relative;
+	z-index: 0;
+	color: #222;
+	font-weight: bold;
+	background: #ffeb3b;
+	-webkit-animation: pop 1s cubic-bezier(0.03,-0.37, 0, 2.02);
+	-moz-animation: pop 1s cubic-bezier(0.03,-0.37, 0, 2.02);
+	animation: pop 1s cubic-bezier(0.03,-0.37, 0, 2.02);
+}
+@-webkit-keyframes pop {
+	0%, 100% {
+		z-index: 99;
 		-webkit-transform: scale(1);
+	}
+	50% {
+		z-index: 99;
+		-webkit-transform: scale(1.5);
+	}
+}
+@-moz-keyframes pop {
+	0%, 100% {
+		z-index: 99;
 		-moz-transform: scale(1);
+	}
+	50% {
+		z-index: 99;
+		-moz-transform: scale(1.5);
+	}
+}
+@keyframes pop {
+	0%, 100% {
+		z-index: 99;
 		transform: scale(1);
 	}
-	#result span.active {
-		position: relative;
-		z-index: 0;
-		color: #222;
-		font-weight: bold;
-		background: #ffeb3b;
-		-webkit-animation: pop 1s cubic-bezier(0.03,-0.37, 0, 2.02);
-		-moz-animation: pop 1s cubic-bezier(0.03,-0.37, 0, 2.02);
-		animation: pop 1s cubic-bezier(0.03,-0.37, 0, 2.02);
+	50% {
+		z-index: 99;
+		transform: scale(1.5);
 	}
-	@-webkit-keyframes pop {
-		0%, 100% {
-			z-index: 99;
-			-webkit-transform: scale(1);
-		}
-		50% {
-			z-index: 99;
-			-webkit-transform: scale(1.5);
-		}
-	}
-	@-moz-keyframes pop {
-		0%, 100% {
-			z-index: 99;
-			-moz-transform: scale(1);
-		}
-		50% {
-			z-index: 99;
-			-moz-transform: scale(1.5);
-		}
-	}
-	@keyframes pop {
-		0%, 100% {
-			z-index: 99;
-			transform: scale(1);
-		}
-		50% {
-			z-index: 99;
-			transform: scale(1.5);
-		}
-	}
-	p.bottom-button {
-		bottom: 0;
-	}
-	p.bottom-button span {
-		display: block;
-		padding: 5px 20px;
-		font-size: 12px;
-		text-align: right;
-	}
-	p.bottom-button a {
-		display: inline-block;
-		padding: 8px 20px;
-		background: dodgerblue;
-		text-align: center;
-		float: right;
-		margin-right: 10px;
-		margin-left: 15px;
-		color: #fff;
-		text-decoration: none;
-		-webkit-border-radius: 3px;
-		-moz-border-radius: 3px;
-		border-radius: 3px;
-	}
-	p.bottom-button a:hover {
-		text-decoration: underline;
-	}
+}
+p.bottom-button {
+	bottom: 0;
+}
+p.bottom-button span {
+	display: block;
+	padding: 5px 20px;
+	font-size: 12px;
+	text-align: right;
+}
+p.bottom-button a {
+	display: inline-block;
+	padding: 8px 20px;
+	background: dodgerblue;
+	text-align: center;
+	float: right;
+	margin-right: 10px;
+	margin-left: 15px;
+	color: #fff;
+	text-decoration: none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+p.bottom-button a:hover {
+	text-decoration: underline;
+}
 </style>
 
 <script>
-	var numDisp = document.getElementById("cur-num");
-	var resultArea = document.getElementById("result");
-	var queue = [];
-	var ress = [];
+var numDisp = document.getElementById("cur-num");
+var resultArea = document.getElementById("result");
+var queue = [];
+var ress = [];
 
-	if(localStorage.prevBingo) {
-		ress = JSON.parse(localStorage.prevBingo);
-		localStorage.prevBingo = "[]";
+if(localStorage.prevBingo) {
+	ress = JSON.parse(localStorage.prevBingo);
+	localStorage.prevBingo = "[]";
+}
+
+var al = document.getElementById("a-l");
+
+for(var i=1; i<=100; i++) {
+	var span = document.createElement("span");
+	span.innerHTML = i;
+	span.id = "n-" + i;
+
+	if(ress.indexOf(i) !== -1) {
+		span.className = "active";
 	}
-
-	var al = document.getElementById("a-l");
-
-	for(var i=1; i<=100; i++) {
-		var span = document.createElement("span");
-		span.innerHTML = i;
-		span.id = "n-" + i;
-
-		if(ress.indexOf(i) !== -1) {
-			span.className = "active";
-		}
-		else{
-			queue.push(i);
-		}
-		resultArea.append(span);
+	else{
+		queue.push(i);
 	}
+	resultArea.append(span);
+}
 
-	function getResult(){
-		var res = Math.floor(Math.random() * queue.length);
-		var num = queue[res];
-		queue.splice(res, 1);
-		ress.push(num);
-		localStorage.prevBingo = JSON.stringify(ress);
-		return num;
+function getResult(){
+	var res = Math.floor(Math.random() * queue.length);
+	var num = queue[res];
+	queue.splice(res, 1);
+	ress.push(num);
+	localStorage.prevBingo = JSON.stringify(ress);
+	return num;
+}
+
+function draw(){
+	if(queue.length === 0){
+		return;
 	}
+	numDisp.innerHTML = '--';
+	al.style.display = "none";
 
-	function draw(){
-		if(queue.length === 0){
-			return;
-		}
-		numDisp.innerHTML = '--';
-		al.style.display = "none";
+	window.setTimeout(function(){
+		var result = getResult();
+		numDisp.innerHTML = result;
+		document.getElementById("n-" + result).className="active";
 
 		window.setTimeout(function(){
-			var result = getResult();
-			numDisp.innerHTML = result;
-			document.getElementById("n-" + result).className="active";
-
-			window.setTimeout(function(){
-				al.style.display = "";
-			}, 600);
-		}, 300);
-	}
+			al.style.display = "";
+		}, 600);
+	}, 300);
+}
 </script>
 	
 </body>
